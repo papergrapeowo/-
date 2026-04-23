@@ -1,6 +1,6 @@
 {
   "name": "@figma/my-make-file",
-  "homepage": "https://papergrapeowo.github.io/-",
+  "homepage": ".",
   "private": true,
   "version": "0.0.1",
   "type": "module",
