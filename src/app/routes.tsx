@@ -10,6 +10,7 @@ import { GuessGame } from "./components/GuessGame";
 import { MyPage } from "./components/MyPage";
 import { FootprintsPage } from "./components/FootprintsPage";
 
+// routes.ts
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +28,8 @@ export const router = createBrowserRouter([
     ],
   },
 ], {
-  // 核心：让路由匹配你在 GitHub Pages 上的子目录
-  basename: "/-" 
+  // 这种写法会自动获取你的仓库路径名，比如 "/-" 或 "/museum-app"
+  basename: window.location.pathname.endsWith('/') 
+            ? window.location.pathname.slice(0, -1) 
+            : window.location.pathname
 });
