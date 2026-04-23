@@ -1,4 +1,5 @@
-import { createBrowserRouter } from "react-router";
+// 1. 改变导入：换成 createHashRouter
+import { createHashRouter } from "react-router"; 
 import { Layout } from "./components/Layout";
 import { HomePage } from "./components/HomePage";
 import { ArtifactsPage } from "./components/ArtifactsPage";
@@ -10,9 +11,10 @@ import { GuessGame } from "./components/GuessGame";
 import { MyPage } from "./components/MyPage";
 import { FootprintsPage } from "./components/FootprintsPage";
 
-export const router = createBrowserRouter([
+// 2. 使用 createHashRouter，并且【删除】basename 配置
+export const router = createHashRouter([
   {
-    path: "/",  // 这里的 path 永远写 "/"
+    path: "/",
     element: <Layout />, 
     children: [
       { index: true, element: <HomePage /> },
@@ -26,8 +28,4 @@ export const router = createBrowserRouter([
       { path: "my", element: <MyPage /> },
     ],
   },
-], {
-  // 这里是关键！不再写死 "/-"
-  // 强制让它适应当前所在的目录
-  basename: "/-" 
-});
+]);
