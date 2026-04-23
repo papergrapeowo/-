@@ -10,10 +10,9 @@ import { GuessGame } from "./components/GuessGame";
 import { MyPage } from "./components/MyPage";
 import { FootprintsPage } from "./components/FootprintsPage";
 
-// routes.ts
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/",  // 这里的 path 永远写 "/"
     element: <Layout />, 
     children: [
       { index: true, element: <HomePage /> },
@@ -28,8 +27,7 @@ export const router = createBrowserRouter([
     ],
   },
 ], {
-  // 这种写法会自动获取你的仓库路径名，比如 "/-" 或 "/museum-app"
-  basename: window.location.pathname.endsWith('/') 
-            ? window.location.pathname.slice(0, -1) 
-            : window.location.pathname
+  // 这里是关键！不再写死 "/-"
+  // 强制让它适应当前所在的目录
+  basename: "/-" 
 });
