@@ -26,4 +26,7 @@ export const router = createBrowserRouter([
       { path: "my", element: <MyPage /> },
     ],
   },
-]);
+], {
+  // 核心：让路由匹配你在 GitHub Pages 上的子目录
+  basename: "/-" 
+});
